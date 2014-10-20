@@ -1,0 +1,225 @@
+\section*{Homework 1 - Linear Algebra}
+\subsection*{Problem 1}
+Calculate the eigenvectors and eigenvalues for the matrix:
+\begin{equation*}
+A=\begin{pmatrix}
+2	&	-1	&	0	\\
+-1	&	2	&	-1	\\
+0	&	-1	&	2
+\end{pmatrix}
+\end{equation*}
+
+\subsubsection*{Calculation of eigenvalues}
+\begin{align*}
+det(A-\lambda I) 	&= \begin{vmatrix}
+2-\lambda	&	-1	&	0	\\
+-1	&	2-\lambda	&	-1	\\
+0	&	-1	&	2-\lambda
+\end{vmatrix}\\
+					&=(2-\lambda)(2-\lambda)(2-\lambda)+(-1)(-1)\cdot 0+0\cdot(-1)(-1)-0\cdot(2-\lambda)\cdot 0 -(2-\lambda)\\
+					&\ \cdot(-1)(-1)-(-1)(-1)(2-\lambda)\\
+					&=(2-\lambda)^{3}-(2-\lambda)-(2-\lambda)\\
+					&=(2-\lambda)^{3}-2(2-\lambda)\\
+					&=(2-\lambda)((2-\lambda)^{2}-2)\\
+					&=(2-\lambda)(2-4\lambda+\lambda^{2})= 0\Longrightarrow\lambda_{1}=2
+\end{align*}
+\begin{align*}				
+\lambda_{2,3}	&= \frac{4\pm\sqrt{16-8}}{4}\\
+				&= 2\pm\sqrt{2}					
+\end{align*}
+
+\subsubsection*{Calculation of eigenvector to eigenvalue $\lambda^{1}=2$}
+\begin{align*}
+(A-2\cdot I)\overrightarrow{x}=\begin{pmatrix}
+0	&	-1	&	0\\
+-1	&	0	&	-1\\
+0	&	-1	&	0
+\end{pmatrix} \begin{pmatrix}
+x_{1}\\
+x_{2}\\
+x_{3}
+\end{pmatrix} = 0\Rightarrow x_{2}=0,x_{1}=-x_{3}\Rightarrow\overrightarrow{x}=\begin{pmatrix}
+1\\
+0\\
+-1
+\end{pmatrix}
+\end{align*}
+
+\subsubsection*{Calculation of eigenvector to eigenvalue $lambda_{2}=2+\sqrt{2}$}
+\begin{align*}
+(A-2+\sqrt{2}\cdot I)\overrightarrow{y}	&=\begin{pmatrix}
+									-\sqrt{2}	&	-1	&	0\\
+									-1	&	-\sqrt{2}	&	-1\\
+									0	&	-1	&	-\sqrt{2}
+								  \end{pmatrix} \begin{pmatrix}
+									y_{1}\\
+									y_{2}\\
+									y_{3}
+							 	  \end{pmatrix}\\
+								&=\begin{pmatrix}
+								  -\sqrt{2}	&	-1	&	0\\
+									-1	&	-\sqrt{2}	&	-1\\
+									0	&	0	&	2
+								  \end{pmatrix} \begin{pmatrix}
+									y_{1}\\
+									y_{2}\\
+									y_{3}
+								  \end{pmatrix}\\
+								&=\begin{pmatrix}
+								  -\sqrt{2}	&	-1	&	0\\
+									0	&	1	&	\sqrt{2}\\
+									0	&	0	&	2
+								  \end{pmatrix} \begin{pmatrix}
+								    y_{1}\\
+									y_{2}\\
+									y_{3}
+								  \end{pmatrix}\\
+								&\Rightarrow x_{3}=2,x_{2}=-2\sqrt{2},x_{1}=2\Rightarrow\overrightarrow{y}=\begin{pmatrix}
+								  2\\-2\sqrt{2}\\2
+								  \end{pmatrix}
+\end{align*}
+
+\subsubsection*{Calculation of eigenvector to eigenvalue $lambda_{2}=2-\sqrt{2}$}
+\begin{align*}
+(A-2-\sqrt{2}\cdot I)\overrightarrow{z}	&=\begin{pmatrix}
+									\sqrt{2}	&	-1	&	0\\
+									-1	&	\sqrt{2}	&	-1\\
+									0	&	-1	&	\sqrt{2}
+								  \end{pmatrix} \begin{pmatrix}
+									z_{1}\\
+									z_{2}\\
+									z_{3}
+							 	  \end{pmatrix}\\
+								&=\begin{pmatrix}
+								  \sqrt{2}	&	-1	&	0\\
+									-1	&	\sqrt{2}	&	-1\\
+									0	&	0	&	2
+								  \end{pmatrix} \begin{pmatrix}
+									z_{1}\\
+									z_{2}\\
+									z_{3}
+								  \end{pmatrix}\\
+								&=\begin{pmatrix}
+								  \sqrt{2}	&	-1	&	0\\
+									0	&	2	&	-\sqrt{2}\\
+									0	&	0	&	2
+								  \end{pmatrix} \begin{pmatrix}
+									z_{1}\\
+									z_{2}\\
+									z_{3}
+								  \end{pmatrix}\\
+								&\Rightarrow x_{3}=2,x_{2}=2\sqrt{2},x_{1}=2\Rightarrow\overrightarrow{y}=\begin{pmatrix}
+								  2\\2\sqrt{2}\\2
+								  \end{pmatrix}
+\end{align*}
+
+\subsection*{Problem 2}
+Proof that following holds:
+\begin{equation*}
+B=UDU^{-1}
+\end{equation*}
+$\lambda_{1},_{\cdots},\lambda_{n}\text{ eigenvalues of B},\overrightarrow{x_{1}},_{\cdots},\overrightarrow{x_{n}}\text{ linearly independent eigenvectors}$
+
+\begin{equation*}
+U=\begin{pmatrix}x_{1}	&	\cdots	&x_{n}\end{pmatrix},B=\begin{pmatrix}
+	\lambda_{1}	&			&	0 \\
+				&	\ddots	&	 \\
+	0			&			&	\lambda_{n}
+	\end{pmatrix}
+\end{equation*}
+
+Let $e_{1},_{\cdots},e_{n}$ denote the unit vectors:
+\begin{equation*}
+\overrightarrow{e_{1}}=\begin{pmatrix}1\\0\\ \vdots\\0\end{pmatrix},_{\cdots},
+\overrightarrow{e_{n}}=\begin{pmatrix}0\\ \vdots\\0\\1\end{pmatrix}
+\end{equation*}
+
+Because $\overrightarrow{x_{1}},_{\cdots},\overrightarrow{x_{n}}$ are linearly independent they can be expressed as follows:
+\begin{equation*}
+x_{i}=\alpha_{1}\overrightarrow{e_{1}}+_{\cdots}+\alpha_{1}\overrightarrow{e_{n}}\qquad\alpha\in\texttt{R}
+\end{equation*}
+
+Additionally following is true:
+\begin{equation}\label{eq:eq3}
+U\cdot e_{1} = x_{1},_{\cdots},U\cdot e_{n}=x_{n}\Rightarrow U\cdot e_{i}=x_{i}\Rightarrow e_{i}=U^{-1}x_{1},\quad i=1,_{\cdots},n
+\end{equation}
+
+\subsubsection{Proof}
+\begin{equation*}
+B=UDU^{-1}\Leftrightarrow B\cdot x=UDU^{-1}\cdot x
+\end{equation*}
+LS:
+\begin{equation}\label{eq:p2ls}
+Bx=\alpha_{1}Bx_{1}+_{\cdots}+\alpha_{n}Bx_{n}=\alpha_{1}\lambda_{1}x_{1}+_{\cdots}+\alpha_{n}\lambda_{n}x_{n}
+\end{equation}
+
+RS:\begin{equation}\label{eq:p2rs}
+RS:	UDU^{-1}x=UD(\alpha_{1}U^{-1}x_{1}+_{\cdots}+\alpha_{n}U^{-1}x_{n})=UD(\alpha_{1}e_{1}+_{\cdots}+\alpha_{1}e_{1})
+\end{equation}
+
+Since $D$ symmetrical following holds:
+\begin{align*}
+De_{i}	&=\lambda_{i}e_{i},\quad i=1,_{\cdots},n\quad\mid \text{From \ref{eq:p2ls} and \ref{eq:p2rs}}\\
+		&=U(\alpha_{1}\lambda_{1} e_{1}+_{\cdots}+\alpha_{n}\lambda_{n} e_{n})\quad\mid \text{From \ref{eq:eq3}}\\
+		&=\alpha_{1}\lambda_{1} x_{1}+_{\cdots}+\alpha_{n}\lambda_{n} x_{n}\\
+	LS	&= RS\quad\square
+\end{align*}
+
+\subsection*{Problem 4}
+\subsection*{Part a}
+Proof that following holds:
+\begin{equation*}
+det(B)=\prod_i=1_{n}\lambda_{i}
+\end{equation*}
+
+\textbf{Proof}
+\begin{align}
+det(UDU^{-1})	&=det(U)\cdot det(B)\cdot \frac{1}{det(U^{-1})}\\
+				&=det(D)\\
+				&=\lambda_{1}\cdot,_{\cdots}\cdot \lambda_{n}\quad\square
+\end{align}
+
+\subsubsection*{Part b}
+Proof that following holds:
+\begin{equation*}
+trace(B)=\sum_{i=1}^{n}\lambda_{i}
+\end{equation*}
+
+\textbf{Proof}:
+\begin{align*}
+tr(A\cdot B)&=\sum_{i=1}^{n}a_{1i}\cdot b_{i1}+_{\cdots}+\sum_{j=1}^{n}a_{nj}\cdot b_{jn}\\
+			&=\sum_{i=1}^{n}\sum_{j=1}^{n}a_{ji}\cdot b_{ij}\\
+			&=\sum_{i=1}^{n}\sum_{j=1}^{n} b_{ij}\cdot a_{ji}\\
+			&=\sum_{i=1}^{n}b_{i1}\cdot a_{1i}+_{\cdots}+\sum_{j=1}^{n}b_{jn}\cdot a_{nj}
+\end{align*}
+Then following is valid:
+\begin{align*}
+trace(B)	&=\sum_{i=1}^{n}B_{ii}\\
+			&=\sum_{i=1}^{n}(UDU^{-1)}_{ii}\\
+			&=\sum_{i=1}^{n}D_{ii}\\
+			&=\lambda_{1}+_{\cdots}+\lambda_{n}\quad\square
+\end{align*}
+
+\subsection*{Problem 5}
+\subsubsection*{Part b}
+Show that following holds:
+\begin{equation*}
+\omega^{T}x^{0}=\omega^{0}
+\end{equation*}
+
+\textbf{Proof:}
+\begin{equation*}
+h(x)\equiv\omega^{0}\omega^{T}x\Rightarrow \omega^{T}x^{0}=\omega^{0}
+\end{equation*}
+\subsubsection*{Part b}
+Show that following holds:
+\begin{equation*}
+\omega^{T}(x^{1}-x_{2})=0
+\end{equation*}
+\textbf{Proof:}
+\begin{align*}
+\omega_{0}+\omega^{T}x_{1}	&=0=\omega_{0}+\omega^{T}x_{2}\\
+\omega_{0}+\omega^{T}x_{1}-(\omega_{0}+\omega^{T}x_{2})&=0\qquad\mid :\omega_{0}\\
+\omega^{T}x_{1}-\omega^{T}x_{2}&=0\\
+\omega^{T}(x^{1}-x_{2})&=0\quad\square
+\end{align*}
